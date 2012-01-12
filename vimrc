@@ -32,8 +32,8 @@ set bg=dark
 set nocompatible
 " Bash-style completion
 set wildmode=longest,list
-" syntax highlighting
-"syntax on
+"syntax highlighting
+syntax on
 " line number
 set nu
 " case insensitive search
