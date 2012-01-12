@@ -53,11 +53,22 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 
-"  For TABS, instead of SPACES.  <TAB> to display as N spaces.
-"set tabstop=8 
 
 " show whitespace characters
 "set list
+
+" Toggle on/off showing whitespace characters.
+"set list!
+
+" Binding the keystroke \l (Backslash-L) to toggle showing whitespace
+" characters.
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+ 
+" Configures whitespace characters shown, when 'set list' is enabled.  These
+" are the ones used by TextMate -- not that I care.  TextMade licks dick.
+set listchars=tab:▸\ ,eol:¬
+
 
 " set the gui font
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
