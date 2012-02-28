@@ -64,6 +64,8 @@ set shiftwidth=4
 " characters.
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+
+nmap <leader>f :%! xml fo -s 4<CR>
  
 " Configures whitespace characters shown, when 'set list' is enabled.  These
 " are the ones used by TextMate -- not that I care.  TextMade licks dick.
