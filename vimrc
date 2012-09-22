@@ -23,7 +23,8 @@
 "   matrix -- screen saver
 "       http://www.vim.org/scripts/script.php?script_id=1189
 
-
+" For MAC OS X
+set clipboard=unnamed
 " Indenting
 filetype plugin indent on
 " DarkScreen
@@ -65,7 +66,7 @@ set shiftwidth=4
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
-nmap <leader>f :%! xml fo -s 4<CR>
+nmap <leader>f :%! xmlstarlet fo -s 4<CR>
  
 " Configures whitespace characters shown, when 'set list' is enabled.  These
 " are the ones used by TextMate -- not that I care.  TextMade licks dick.
