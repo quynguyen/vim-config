@@ -23,6 +23,8 @@
 "   matrix -- screen saver
 "       http://www.vim.org/scripts/script.php?script_id=1189
 
+" Seems to fix a backspace problem with Vim on Mac OSX
+set bs=2
 " For MAC OS X
 set clipboard=unnamed
 " Indenting
