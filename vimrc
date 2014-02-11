@@ -74,6 +74,17 @@ call pathogen#helptags()
 " See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
 " indenting
+=======
+" Sets up Pathogen.  A bundle manager for VIM
+call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" Seems to fix a backspace problem with Vim on Mac OSX
+set bs=2
+" For MAC OS X
+set clipboard=unnamed
+" Indenting
 filetype plugin indent on
 " DarkScreen
 set bg=dark
@@ -82,8 +93,7 @@ set nocompatible
 " Bash-style completion
 set wildmode=longest,list
 " syntax highlighting
-syntax on
-" line number
+syntax " line number
 set nu
 " case insensitive search
 set ignorecase
@@ -104,10 +114,12 @@ set clipboard=unnamed
 "     - expandtab   -- <TAB> will expand to N spacess.  Using <CTRL-V>, <TAB> to insert a real tab character
 "     - softtabstop -- <BACKSPACE> will delete N spaces.  <TAB> will insert a mix of tabs and spaces, when expandtab is off.  But when expandtab is on, which it will be here, then <TAB> will ONLY insert spaces.) 
 "     - shiftwidth  -- >> will indent N spaces
-set expandtab
-set softtabstop=4
-set shiftwidth=4
 
+" Uncommented for MDi XML
+"set expandtab
+"set softtabstop=4
+"set shiftwidth=4
+set list
 
 " show whitespace characters
 "set list
@@ -122,6 +134,8 @@ nmap <leader>l :set list!<CR>
 
 nmap <leader>f :%! xmlstarlet fo -t<CR>
  
+noremap <leader>o <Esc>:CommandT<CR>
+
 " Configures whitespace characters shown, when 'set list' is enabled.  These
 " are the ones used by TextMate -- not that I care.  TextMade licks dick.
 set listchars=tab:▸\ ,eol:¬

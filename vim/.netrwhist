@@ -1,5 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/lang/scala2.9'
-let g:netrw_dirhist_2='/opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/lang/scala2.9/files'
-let g:netrw_dirhist_3='/Users/quy/projects/github/vim-config/vim/eclim'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/quy/projects/github/shell-config/common/profile.d'
