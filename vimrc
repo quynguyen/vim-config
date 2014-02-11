@@ -1,5 +1,3 @@
-"
-"
 " List of vim-plugins to install:
 "
 "   matchit -- finds matching tags and closing braces
@@ -23,11 +21,59 @@
 "   matrix -- screen saver
 "       http://www.vim.org/scripts/script.php?script_id=1189
 
-" Seems to fix a backspace problem with Vim on Mac OSX
-set bs=2
-" For MAC OS X
-set clipboard=unnamed
-" Indenting
+" Enables Pathogen -- A Vim plugin manager
+" Requires the plugin to be installed in .vim/autoload/pathogen.vim
+" Pathogen needs to be loaded before any 'filetype' settings are activated
+call pathogen#incubate()
+call pathogen#helptags()
+
+" Following the advice of Vimcast (url below), we shall install Pathogen
+" plugins as Git 'submodules' within Quy's own vim-config Git repo.
+"
+" Install Plugin
+" ==============
+"
+" To install a vim plugin, do the following:
+" 
+" 1)  Get the git repo URL of the plugin.
+"
+" 2)  At the root of our vim-config git repo, add the plugin's git repo URL as
+" a submodule, with the local path of ./vim/bundle/{plugin-name}
+"
+"   e.g. The git repo for the vim plugin vim-sensible is: https://github.com/tpope/vim-sensible.git
+"   
+"   cd vim-config
+"   git submodule add vim/bundle/vim-sensible
+"
+" Update/Synchronize Plugin
+" =========================
+"
+" To synchronize the vim-config onto another system, we need to do more than
+" just do a git update on the vim-config update.  Git submodules don't
+" automatically get updated with a git update.  We need to do the following:
+"
+" 1) Go to the root of Quy's vim-config
+" 2) git submodule update --init
+"
+" We only need to do this once for every new batch up vim plugins. i.e. if we
+" install a new batch of 20 new vim plugins, to synchronize those new plugins,
+" we'd only need to run that 'git submodule update --init' command once, for the entire batch of new
+" plugins.
+"
+"
+" Remove Plugin
+" =============
+"
+" 1. Remove it from .gitmodules
+" 2. Remove it from .git/config
+" 3. Run git rm --cached <path-to-module></path-to-module>
+"
+" More Info
+" =========
+"
+" See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+
+" indenting
 filetype plugin indent on
 " DarkScreen
 set bg=dark
@@ -35,7 +81,7 @@ set bg=dark
 set nocompatible
 " Bash-style completion
 set wildmode=longest,list
-"syntax highlighting
+" syntax highlighting
 syntax on
 " line number
 set nu
@@ -47,6 +93,12 @@ set hlsearch
 set incsearch
 " wrap search
 set wrapscan
+
+
+" Seems to fix a backspace problem with Vim on Mac OSX
+set bs=2
+" For MAC OS X
+set clipboard=unnamed
 
 "  For SPACES, instead of TABS.  The combination of expandtab, softtabstop, and shiftwidth does the following (perfect in my opinion) behavior:
 "     - expandtab   -- <TAB> will expand to N spacess.  Using <CTRL-V>, <TAB> to insert a real tab character
@@ -68,7 +120,7 @@ set shiftwidth=4
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
-nmap <leader>f :%! xmlstarlet fo -s 4<CR>
+nmap <leader>f :%! xmlstarlet fo -t<CR>
  
 " Configures whitespace characters shown, when 'set list' is enabled.  These
 " are the ones used by TextMate -- not that I care.  TextMade licks dick.
