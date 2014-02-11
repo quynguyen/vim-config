@@ -73,13 +73,8 @@ call pathogen#helptags()
 "
 " See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
-" indenting
-=======
-" Sets up Pathogen.  A bundle manager for VIM
-call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
+" syntax highlighting
+syntax on
 " Seems to fix a backspace problem with Vim on Mac OSX
 set bs=2
 " For MAC OS X
@@ -92,8 +87,7 @@ set bg=dark
 set nocompatible
 " Bash-style completion
 set wildmode=longest,list
-" syntax highlighting
-syntax " line number
+" line number
 set nu
 " case insensitive search
 set ignorecase
