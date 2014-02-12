@@ -74,7 +74,10 @@ call pathogen#helptags()
 " See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
 " syntax highlighting
-syntax on
+syntax enable
+" Choose the popular Solarized colorscheme
+let g:solarized_termcolors=256
+colorscheme solarized
 " Seems to fix a backspace problem with Vim on Mac OSX
 set bs=2
 " For MAC OS X
