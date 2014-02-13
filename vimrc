@@ -166,22 +166,24 @@ let g:expand_region_text_objects = {
       \ 'i]'  :1,
       \ 'ib'  :1,
       \ 'iB'  :1,
-      \ 'il'  :0,
       \ 'ip'  :0,
       \ 'ie'  :0,
+      \ 'il'  :0,
       \ }
 
 call expand_region#custom_text_objects({
-      \ "\/\\n\\n\<CR>": 1,
       \ 'a]' :1,
       \ 'ab' :1,
       \ 'aB' :1,
+      \ 'i>' :1,
+      \ 'a>' :1,
+      \ 'it' :1,
+      \ 'at' :1,
       \ 'ic' :0,
       \ 'ac' :0,
-      \ 'it' :0,
-      \ 'at' :0,
       \ 'ii' :0,
       \ 'ai' :0,
       \ 'if' :0,
       \ 'af' :0,
       \ })
+"      \ "\/\\n\\n\<CR>": 1,
