@@ -56,3 +56,35 @@
 [submodule "vim/bundle/vim-extradite"]
 	path = vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite.git
+[submodule "vim/bundle/vim-textobj-function"]
+	path = vim/bundle/vim-textobj-function
+	url = https://github.com/kana/vim-textobj-function
+	ignore = dirty
+[submodule "vim/bundle/vim-textobj-user"]
+	path = vim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+	ignore = dirty
+[submodule "vim/bundle/vim-expand-region"]
+	path = vim/bundle/vim-expand-region
+	url = https://github.com/terryma/vim-expand-region
+	ignore = dirty
+[submodule "vim/bundle/vim-textobj-indent"]
+	path = vim/bundle/vim-textobj-indent
+	url = https://github.com/kana/vim-textobj-indent
+	ignore = dirty
+[submodule "vim/bundle/vim-textobj-comment"]
+	path = vim/bundle/vim-textobj-comment
+	url = https://github.com/thinca/vim-textobj-comment
+	ignore = dirty
+[submodule "vim/bundle/vim-textobj-function-javascript"]
+	path = vim/bundle/vim-textobj-function-javascript
+	url = https://github.com/thinca/vim-textobj-function-javascript.git
+	ignore = dirty
+[submodule "vim/bundle/vim-textobj-line"]
+	path = vim/bundle/vim-textobj-line
+	url = https://github.com/kana/vim-textobj-line
+	ignore = dirty
+[submodule "vim/bundle/vim-textobj-entire"]
+	path = vim/bundle/vim-textobj-entire
+	url = https://github.com/kana/vim-textobj-entire
+	ignore = dirty
