@@ -53,3 +53,6 @@
 	path = vim/bundle/VimClojure
 	url = https://github.com/vim-scripts/VimClojure.git
 	ignore = dirty
+[submodule "vim/bundle/vim-extradite"]
+	path = vim/bundle/vim-extradite
+	url = https://github.com/int3/vim-extradite.git

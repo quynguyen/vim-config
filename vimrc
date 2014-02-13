@@ -137,6 +137,10 @@ nmap <leader>f :%! xmlstarlet fo -t<CR>
 
 " For the Git plugin, fugitative.vim.  Brings up the staging menu
 noremap <leader>g <Esc>:Gstatus<CR>
+"
+" For the Git plugin, Extradate.vim.  A Git Extension.  For looking at the
+" history of one particular file
+noremap <leader>e <Esc>:Extradite<CR>
  
 noremap <leader>o <Esc>:CommandT<CR>
 
