@@ -73,10 +73,17 @@ call pathogen#helptags()
 "
 " See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
+" For Colors
+set t_Co=16
+" turns off vi compatibility -- Unleashes the power of viM
+set nocompatible
 " syntax highlighting
-syntax enable
+syntax on
+" DarkScreen
+set bg=dark
+" Toggle Dark/Light
+call togglebg#map("<F5>")
 " Choose the popular Solarized colorscheme
-let g:solarized_termcolors=256
 colorscheme solarized
 " Seems to fix a backspace problem with Vim on Mac OSX
 set bs=2
@@ -84,10 +91,6 @@ set bs=2
 set clipboard=unnamed
 " Indenting
 filetype plugin indent on
-" DarkScreen
-set bg=dark
-" turns off vi compatibility -- Unleashes the power of viM
-set nocompatible
 " Bash-style completion
 set wildmode=longest,list
 " line number
@@ -129,7 +132,11 @@ set list
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
+" Format xml
 nmap <leader>f :%! xmlstarlet fo -t<CR>
+
+" For the Git plugin, fugitative.vim.  Brings up the staging menu
+noremap <leader>g <Esc>:Gstatus<CR>
  
 noremap <leader>o <Esc>:CommandT<CR>
 
