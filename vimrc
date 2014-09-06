@@ -104,7 +104,8 @@ set hlsearch
 set incsearch
 " wrap search
 set wrapscan
-
+" show a fully qualified path.
+set statusline+=%F
 
 " Seems to fix a backspace problem with Vim on Mac OSX
 set bs=2
@@ -144,6 +145,17 @@ noremap <leader>g <Esc>:Gstatus<CR>
 noremap <leader>e <Esc>:Extradite<CR>
  
 noremap <leader>o <Esc>:CommandT<CR>
+
+" Clear highlight search
+"let hlstate=0
+"nnoremap <F4> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
+set nohlsearch
+noremap * :set hlsearch<CR>:nohlsearch<CR>*
+noremap / :set hlsearch<CR>:nohlsearch<CR>/
+noremap ? :set hlsearch<CR>:nohlsearch<CR>?
+nnoremap <F4> :set invhlsearch<CR>
+inoremap <F4> <ESC>:set invhlsearch<CR>gi
+nnoremap <CR> :set nohlsearch<CR>
 
 " Configures whitespace characters shown, when 'set list' is enabled.  These
 " are the ones used by TextMate -- not that I care.  TextMade licks dick.
