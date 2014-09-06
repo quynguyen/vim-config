@@ -73,18 +73,19 @@ call pathogen#helptags()
 "
 " See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 
-" For Colors
-set t_Co=16
 " turns off vi compatibility -- Unleashes the power of viM
 set nocompatible
 " syntax highlighting
-syntax on
+syntax enable
+" For Colors
+set t_Co=256
+let g:solarized_termcolors=256
+" Choose the popular Solarized colorscheme
+colorscheme solarized
 " DarkScreen
 set bg=dark
 " Toggle Dark/Light
 call togglebg#map("<F5>")
-" Choose the popular Solarized colorscheme
-colorscheme solarized
 " Seems to fix a backspace problem with Vim on Mac OSX
 set bs=2
 " For MAC OS X
