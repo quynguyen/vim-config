@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/quy/projects/github/shell-config/common/profile.d'
 let g:netrw_dirhist_2='/home/quy/config/vim-config/vim/bundle/vim-colors-solarized'
 let g:netrw_dirhist_3='/home/quy/config/vim-config/vim/bundle/vim-colors-solarized/colors'
 let g:netrw_dirhist_4='/home/quy/config/tmux-config/tmux-colors-solarized'
 let g:netrw_dirhist_5='/home/quy/.tmux'
+let g:netrw_dirhist_6='/home/quy/projects/scratch'
+let g:netrw_dirhist_7='/home/quy/projects/courses/scala-reactive-programming-fall-2013/assignment4/suggestions/src/main/scala/suggestions/observablex'
+let g:netrw_dirhist_8='/home/quy/config/vim-config/vim/bundle/vim-scala'
