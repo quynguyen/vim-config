@@ -98,3 +98,6 @@
 [submodule "vim/bundle/vim-pathogen"]
 	path = vim/bundle/vim-pathogen
 	url = git@github.com:tpope/vim-pathogen.git
+[submodule "vim/bundle/vim-js-indent"]
+	path = vim/bundle/vim-js-indent
+	url = git@github.com:jason0x43/vim-js-indent.git
