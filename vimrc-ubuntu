@@ -21,11 +21,18 @@
 "   matrix -- screen saver
 "       http://www.vim.org/scripts/script.php?script_id=1189
 
-" Enables Pathogen -- A Vim plugin manager
-" Requires the plugin to be installed in .vim/autoload/pathogen.vim
+" Imports Pathogen -- A Vim plugin manager
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+" Loads Pathogen
 " Pathogen needs to be loaded before any 'filetype' settings are activated
-call pathogen#incubate()
+call pathogen#infect()
 call pathogen#helptags()
+
+" Now that Pathogen is loaded, enable syntax highlighting, and filetype
+" detection.
+syntax on
+filetype plugin indent on
 
 " Following the advice of Vimcast (url below), we shall install Pathogen
 " plugins as Git 'submodules' within Quy's own vim-config Git repo.
