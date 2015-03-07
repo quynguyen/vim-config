@@ -101,3 +101,15 @@
 [submodule "vim/bundle/vim-js-indent"]
 	path = vim/bundle/vim-js-indent
 	url = git@github.com:jason0x43/vim-js-indent.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim/bundle/javascript-libraries-syntax.vim"]
+	path = vim/bundle/javascript-libraries-syntax.vim
+	url = git@github.com:othree/javascript-libraries-syntax.vim.git
+[submodule "vim/bundle/jasmine.vim"]
+	path = vim/bundle/jasmine.vim
+	url = https://github.com/claco/jasmine.vim
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
