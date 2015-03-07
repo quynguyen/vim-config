@@ -70,6 +70,16 @@
 " See: http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 "================================================================================================
 
+"================================================================================================
+" Nerdtree Settings
+"================================================================================================
+map <C-n> :NERDTreeToggle<CR>
+" Opens nerdtree when vim is opened with no files
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
+" Allows vim to exit without warning if Nerdtree is the only window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"
 "" Toggle Dark/Light
 call togglebg#map("<F5>")
 
@@ -139,8 +149,6 @@ noremap <leader>g <Esc>:Gstatus<CR>
 " For the Git plugin, Extradate.vim.  A Git Extension.  For looking at the
 " history of one particular file
 noremap <leader>e <Esc>:Extradite<CR>
- 
-noremap <leader>o <Esc>:CommandT<CR>
 
 " Clear highlight search
 "let hlstate=0
