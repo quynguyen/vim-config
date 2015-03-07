@@ -95,7 +95,6 @@ set wrapscan
 " show a fully qualified path.
 set statusline+=%F
 
-
 " A way to show the output of ":make" in a vim sub-window
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
