@@ -6,6 +6,7 @@ set nocompatible
 
 " For Colors
 set t_Co=256
+let g:solarized_termcolors=256
 " DarkScreen
 set bg=dark
 " Choose the popular Solarized colorscheme
