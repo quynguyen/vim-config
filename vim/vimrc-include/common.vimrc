@@ -102,6 +102,12 @@ autocmd QuickFixCmdPost    l* nested lwindow
 " Enables vim-repeat.git
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+let g:UltiSnipsListSnippets="<c-m>"
+"
 "  For SPACES, instead of TABS.  The combination of expandtab, softtabstop, and shiftwidth does the following (perfect in my opinion) behavior:
 "     - expandtab   -- <TAB> will expand to N spacess.  Using <CTRL-V>, <TAB> to insert a real tab character
 "     - softtabstop -- <BACKSPACE> will delete N spaces.  <TAB> will insert a mix of tabs and spaces, when expandtab is off.  But when expandtab is on, which it will be here, then <TAB> will ONLY insert spaces.) 
@@ -148,6 +154,10 @@ inoremap <F4> <ESC>:set invhlsearch<CR>gi
 nnoremap <CR> :set nohlsearch<CR>
 nnoremap <F6> :colorscheme solarized<CR>
 
+" Opens file in Browsers
+nnoremap <F10>f :exe ':silent !firefox %'<CR>
+nnoremap <F10>c :exe ':silent !google-chrome %'<CR>
+"
 " Configures whitespace characters shown, when 'set list' is enabled.  These
 " are the ones used by TextMate -- not that I care.  TextMade licks dick.
 set listchars=tab:▸\ ,eol:¬

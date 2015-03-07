@@ -119,3 +119,6 @@
 [submodule "vim/bundle/angular-vim-snippets"]
 	path = vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
