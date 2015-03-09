@@ -71,23 +71,27 @@
 "================================================================================================
 
 "================================================================================================
-" Nerdtree Settings
+" White Space and Indenting
 "================================================================================================
-map <C-n> :NERDTreeToggle<CR>
-" Opens nerdtree when vim is opened with no files
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
-" Allows vim to exit without warning if Nerdtree is the only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "
-"" Toggle Dark/Light
-call togglebg#map("<F5>")
+"  For SPACES, instead of TABS.  The combination of expandtab, softtabstop, and shiftwidth does the following (perfect in my opinion) behavior:
+"     - expandtab   -- <TAB> will expand to N spacess.  Using <CTRL-V>, <TAB> to insert a real tab character
+"     - softtabstop -- <BACKSPACE> will delete N spaces.  <TAB> will insert a mix of tabs and spaces, when expandtab is off.  But when expandtab is on, which it will be here, then <TAB> will ONLY insert spaces.) 
+"     - shiftwidth  -- >> will indent N spaces
 
-" Seems to fix a backspace problem with Vim on Mac OSX
-set bs=2
-" For MAC OS X
-set clipboard=unnamedplus
+" Uncommented for MDi XML
+"set expandtab
+"set softtabstop=4
+"set shiftwidth=4
+set list
 
+" Configures whitespace characters shown, when 'set list' is enabled.  These
+" are the ones used by TextMate -- not that I care.  TextMade licks dick.
+set listchars=tab:▸\ ,eol:¬
+
+"================================================================================================
+" Editor Settings
+"================================================================================================
 " Indenting
 filetype plugin indent on
 " Bash-style completion
@@ -104,36 +108,19 @@ set incsearch
 set wrapscan
 " show a fully qualified path.
 set statusline+=%F
+" Show matching Brace
+set showmatch
+" Seems to fix a backspace problem with Vim on Mac OSX
+set bs=2
+" For MAC OS X
+set clipboard=unnamedplus
 
-" A way to show the output of ":make" in a vim sub-window
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+"================================================================================================
+" Keymappings
+"================================================================================================
 
-" Enables vim-repeat.git
-silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-let g:UltiSnipsListSnippets="<c-m>"
-"
-"  For SPACES, instead of TABS.  The combination of expandtab, softtabstop, and shiftwidth does the following (perfect in my opinion) behavior:
-"     - expandtab   -- <TAB> will expand to N spacess.  Using <CTRL-V>, <TAB> to insert a real tab character
-"     - softtabstop -- <BACKSPACE> will delete N spaces.  <TAB> will insert a mix of tabs and spaces, when expandtab is off.  But when expandtab is on, which it will be here, then <TAB> will ONLY insert spaces.) 
-"     - shiftwidth  -- >> will indent N spaces
-
-" Uncommented for MDi XML
-"set expandtab
-"set softtabstop=4
-"set shiftwidth=4
-set list
-
-" show whitespace characters
-"set list
-
-" Toggle on/off showing whitespace characters.
-"set list!
+"" Toggle Dark/Light
+call togglebg#map("<F5>")
 
 " Binding the keystroke \l (Backslash-L) to toggle showing whitespace
 " characters.
@@ -166,19 +153,22 @@ nnoremap <F6> :colorscheme solarized<CR>
 nnoremap <F10>f :exe ':silent !firefox %'<CR>
 nnoremap <F10>c :exe ':silent !google-chrome %'<CR>
 "
-" Configures whitespace characters shown, when 'set list' is enabled.  These
-" are the ones used by TextMate -- not that I care.  TextMade licks dick.
-set listchars=tab:▸\ ,eol:¬
 
-" set show match
-set showmatch
-" for java
-let java_highlight_all=1
-let java_highlight_functions="style"
-let java_allow_cpp_keywords=1
-" tags
-set tags+=~/.tags
+"================================================================================================
+" Nerdtree Settings
+"================================================================================================
+map <C-n> :NERDTreeToggle<CR>
+" Opens nerdtree when vim is opened with no files
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
+" Allows vim to exit without warning if Nerdtree is the only window open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+"================================================================================================
+" vim-expand.git settings
+" https://github.com/terryma/vim-expand-region/ 
+" 
+"================================================================================================
 
 let g:expand_region_text_objects = {
       \ 'iw'  :0,
@@ -208,3 +198,81 @@ call expand_region#custom_text_objects({
       \ 'if' :0,
       \ 'af' :0,
       \ })
+
+
+"
+"================================================================================================
+" Make / Compile Settings
+"================================================================================================
+
+" A way to show the output of ":make" in a vim sub-window
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
+"================================================================================================
+" Java Editing Settings
+"================================================================================================
+" for java
+let java_highlight_all=1
+let java_highlight_functions="style"
+let java_allow_cpp_keywords=1
+" tags
+set tags+=~/.tags
+
+"================================================================================================
+" *****
+" CtrlP
+" *****
+"
+" A fast file launcher.  3 modes:
+" 
+"   1) Current directory
+"   2) Any open Buffers
+"   3) MRU (most recently used
+"
+" Keys
+"
+"   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+"   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+"   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+"   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+"   Use <c-y> to create a new file and its parent directories.
+"   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+"================================================================================================
+
+" Enables vim-repeat.git
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+
+map <leader>m :CtrlPMixed<CR>
+
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+"================================================================================================
+" *********
+" Syntastic
+" *********
+" https://github.com/scrooloose/syntastic
+"
+" Checks the syntax of the current filetype, and reports errors in-line.
+"================================================================================================
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"================================================================================================
+" Airline Settings (the prompt at the bottom)
+"================================================================================================
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
