@@ -112,8 +112,14 @@ set statusline+=%F
 set showmatch
 " Seems to fix a backspace problem with Vim on Mac OSX
 set bs=2
+
 " For MAC OS X
-set clipboard=unnamedplus
+set clipboard^=unnamedplus
+
+" Vim's clipboard registers clear on exit, so anything yanked into the system
+" clipboard from inside vim, cannot be pasted once vim exits. This autocmd
+" makes sure Vim persists the clipboard register to the environment.
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
 "================================================================================================
 " Keymappings
