@@ -23,3 +23,6 @@ colorscheme solarized
 
 " Load the common vimrc
 runtime vimrc-include/common.vimrc
+
+set clipboard^=unnamed
+
