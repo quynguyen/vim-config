@@ -176,3 +176,6 @@
 	path = vim/bundle/vim-glaive
 	url = https://github.com/google/vim-glaive
 	branch = master
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
