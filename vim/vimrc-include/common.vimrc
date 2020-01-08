@@ -143,6 +143,8 @@ noremap <leader>g <Esc>:Gstatus<CR>
 " history of one particular file
 noremap <leader>e <Esc>:Extradite<CR>
 
+imap jj <Esc>
+
 " Clear highlight search
 "let hlstate=0
 "nnoremap <F4> :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<cr>
