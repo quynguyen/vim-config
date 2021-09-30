@@ -136,10 +136,6 @@
 	path = vim/bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
 	branch = master
-[submodule "vim/bundle/ultisnips"]
-	path = vim/bundle/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
-	branch = master
 [submodule "vim/bundle/angular-vim-snippets"]
 	path = vim/bundle/angular-vim-snippets
 	url = https://github.com/matthewsimo/angular-vim-snippets
