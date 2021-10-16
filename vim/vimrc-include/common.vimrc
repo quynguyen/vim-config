@@ -124,6 +124,11 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 "================================================================================================
 " Keymappings
 "================================================================================================
+" Reformat code
+noremap <leader>r m'gg=G''
+
+"reload vimrc
+noremap <leader>z :source $MYVIMRC<CR>
 
 "" Toggle Dark/Light
 call togglebg#map("<F5>")
@@ -132,9 +137,6 @@ call togglebg#map("<F5>")
 " characters.
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
-
-" Format xml
-nmap <leader>f :%! xmlstarlet fo -t<CR>
 
 " For the Git plugin, fugitative.vim.  Brings up the staging menu
 noremap <leader>g <Esc>:Gstatus<CR>
@@ -162,13 +164,39 @@ nnoremap <F10>f :exe ':silent !firefox %'<CR>
 nnoremap <F10>c :exe ':silent !google-chrome %'<CR>
 "
 
+" Top 5 vimrc remaps from this crazy mofo
+" https://www.youtube.com/watch?v=hSHATqh8svM
+"================================================================================================ 
+" Capital "D", and Capital "C" effects from the cursor to the end of the line.
+" Yet, Capital "Y" yanks the entire line.  Why?  Make "Y" yank from the cursor
+" until the end of the line
+nnoremap Y y$
+
+" When the cursor jumps during finds or joins, have the screen/camera track
+" the cursor, keeping the cursor in the middle.  This is a like the David
+" Fincher camera think, or keeping the subject centered in frame, even if the
+" subject is moving ever so slightly
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" This is a helpful ditty to undo just a phrase, or sentence, rather than a whole line.
+" Create undo-breakss for a comma, period, exclamation, or question mark; whatever really.
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+noremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
 "================================================================================================
 " Nerdtree Settings
 "================================================================================================
 map <C-n> :NERDTreeToggle<CR>
 " Opens nerdtree when vim is opened with no files
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif"
 " Allows vim to exit without warning if Nerdtree is the only window open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -179,33 +207,33 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "================================================================================================
 
 let g:expand_region_text_objects = {
-      \ 'iw'  :0,
-      \ 'iW'  :0,
-      \ 'i"'  :0,
-      \ 'i''' :0,
-      \ 'i]'  :1,
-      \ 'ib'  :1,
-      \ 'iB'  :1,
-      \ 'ip'  :0,
-      \ 'ie'  :0,
-      \ 'il'  :0,
-      \ }
+			\ 'iw'  :0,
+			\ 'iW'  :0,
+			\ 'i"'  :0,
+			\ 'i''' :0,
+			\ 'i]'  :1,
+			\ 'ib'  :1,
+			\ 'iB'  :1,
+			\ 'ip'  :0,
+			\ 'ie'  :0,
+			\ 'il'  :0,
+			\ }
 
 call expand_region#custom_text_objects({
-      \ 'a]' :1,
-      \ 'ab' :1,
-      \ 'aB' :1,
-      \ 'i>' :1,
-      \ 'a>' :1,
-      \ 'it' :1,
-      \ 'at' :1,
-      \ 'ic' :0,
-      \ 'ac' :0,
-      \ 'ii' :0,
-      \ 'ai' :0,
-      \ 'if' :0,
-      \ 'af' :0,
-      \ })
+			\ 'a]' :1,
+			\ 'ab' :1,
+			\ 'aB' :1,
+			\ 'i>' :1,
+			\ 'a>' :1,
+			\ 'it' :1,
+			\ 'at' :1,
+			\ 'ic' :0,
+			\ 'ac' :0,
+			\ 'ii' :0,
+			\ 'ai' :0,
+			\ 'if' :0,
+			\ 'af' :0,
+			\ })
 
 
 "
@@ -256,7 +284,7 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 map <leader>m :CtrlPMixed<CR>
 
 if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 "================================================================================================
@@ -286,7 +314,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme="solarized"
 
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_powerline_fonts = 1
