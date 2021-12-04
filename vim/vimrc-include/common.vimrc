@@ -207,17 +207,17 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "================================================================================================
 
 let g:expand_region_text_objects = {
-			\ 'iw'  :0,
-			\ 'iW'  :0,
-			\ 'i"'  :0,
-			\ 'i''' :0,
-			\ 'i]'  :1,
-			\ 'ib'  :1,
-			\ 'iB'  :1,
-			\ 'ip'  :0,
-			\ 'ie'  :0,
-			\ 'il'  :0,
-			\ }
+      \ 'iw'  :0,
+      \ 'iW'  :0,
+      \ 'i"'  :0,
+      \ 'i''' :0,
+      \ 'i]'  :1,
+      \ 'ib'  :1,
+      \ 'iB'  :1,
+      \ 'il'  :0,
+      \ 'ip'  :0,
+      \ 'ie'  :0,
+      \ }
 
 call expand_region#custom_text_objects({
 			\ 'a]' :1,
@@ -233,6 +233,10 @@ call expand_region#custom_text_objects({
 			\ 'ai' :0,
 			\ 'if' :0,
 			\ 'af' :0,
+			\ 'im' :0,
+			\ 'am' :0,
+			\ 'ir' :0,
+			\ 'ar' :0,
 			\ })
 
 

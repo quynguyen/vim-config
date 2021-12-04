@@ -180,3 +180,12 @@
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/bundle/vim-endwise
 	url = git@github.com:tpope/vim-endwise.git
+[submodule "vim/bundle/vim-textobj-ruby"]
+	path = vim/bundle/vim-textobj-ruby
+	url = git@github.com:rhysd/vim-textobj-ruby.git
+[submodule "vim/bundle/vim-textobj-rubyblock"]
+	path = vim/bundle/vim-textobj-rubyblock
+	url = git@github.com:nelstrom/vim-textobj-rubyblock.git
+[submodule "vim/bundle/vim-textobj-markdown"]
+	path = vim/bundle/vim-textobj-markdown
+	url = git@github.com:coachshea/vim-textobj-markdown.git
