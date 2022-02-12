@@ -220,6 +220,7 @@ let g:expand_region_text_objects = {
       \ }
 
 call expand_region#custom_text_objects({
+			\ "\/\\n\\n\<CR>": 1,
 			\ 'a]' :1,
 			\ 'ab' :1,
 			\ 'aB' :1,
